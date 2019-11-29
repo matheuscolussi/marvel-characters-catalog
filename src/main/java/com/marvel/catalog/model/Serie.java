@@ -14,22 +14,24 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-@Table(name = "STORY")
-public class Story {
+@Table(name = "SERIE")
+public class Serie {
 
 	@Id
 	private int id;
 	private String title;
 	private String description;
 	private String resourceURI;
-	private String type;
+	private int startYear;
+	private int endYear;
+	private String rating;
 	private Date modified;
 
 	@OneToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "image_id")
 	private Image thumbnail;
 
-	@ManyToMany(mappedBy = "stories")
+	@ManyToMany(mappedBy = "series")
 	@JsonBackReference
 	private List<Character> characters;
 
@@ -65,12 +67,28 @@ public class Story {
 		this.resourceURI = resourceURI;
 	}
 
-	public String getType() {
-		return type;
+	public int getStartYear() {
+		return startYear;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setStartYear(int startYear) {
+		this.startYear = startYear;
+	}
+
+	public int getEndYear() {
+		return endYear;
+	}
+
+	public void setEndYear(int endYear) {
+		this.endYear = endYear;
+	}
+
+	public String getRating() {
+		return rating;
+	}
+
+	public void setRating(String rating) {
+		this.rating = rating;
 	}
 
 	public Date getModified() {
@@ -102,7 +120,12 @@ public class Story {
 //	private GenericList events;
 //	private GenericList characters;
 //	private GenericList creators;
-//	private GenericSummary originalissue;
+//	private GenericSummary next;
+//	private GenericSummary previous;
+
+//	@OneToMany
+//	@JoinColumn(name = "url_id")
+//	private List<Url> urls;
 
 //	public int getId() {
 //		return id;
@@ -136,12 +159,28 @@ public class Story {
 //		this.resourceURI = resourceURI;
 //	}
 //
-//	public String getType() {
-//		return type;
+//	public int getStartYear() {
+//		return startYear;
 //	}
 //
-//	public void setType(String type) {
-//		this.type = type;
+//	public void setStartYear(int startYear) {
+//		this.startYear = startYear;
+//	}
+//
+//	public int getEndYear() {
+//		return endYear;
+//	}
+//
+//	public void setEndYear(int endYear) {
+//		this.endYear = endYear;
+//	}
+//
+//	public String getRating() {
+//		return rating;
+//	}
+//
+//	public void setRating(String rating) {
+//		this.rating = rating;
 //	}
 //
 //	public Date getModified() {
@@ -200,27 +239,47 @@ public class Story {
 //		this.creators = creators;
 //	}
 //
-//	public GenericSummary getOriginalissue() {
-//		return originalissue;
+//	public GenericSummary getNext() {
+//		return next;
 //	}
 //
-//	public void setOriginalissue(GenericSummary originalissue) {
-//		this.originalissue = originalissue;
+//	public void setNext(GenericSummary next) {
+//		this.next = next;
+//	}
+//
+//	public GenericSummary getPrevious() {
+//		return previous;
+//	}
+//
+//	public void setPrevious(GenericSummary previous) {
+//		this.previous = previous;
+//	}
+//
+//	public List<Url> getUrls() {
+//		return urls;
+//	}
+//
+//	public void setUrls(List<Url> urls) {
+//		this.urls = urls;
 //	}
 
-//	Story {
-//		id (int, optional): The unique ID of the story resource.,
-//		title (string, optional): The story title.,
-//		description (string, optional): A short description of the story.,
-//		resourceURI (string, optional): The canonical URL identifier for this resource. ,
-//		type (string, optional): The story type e.g. interior story, cover, text story.,
+//	Series {
+//		id (int, optional): The unique ID of the series resource.,
+//		title (string, optional): The canonical title of the series.,
+//		description (string, optional): A description of the series.,
+//		resourceURI (string, optional): The canonical URL identifier for this resource.,
+//		urls (Array[Url], optional): A set of public web site URLs for the resource.,
+//		startYear (int, optional): The first year of publication for the series.,
+//		endYear (int, optional): The last year of publication for the series (conventionally, 2099 for ongoing series) .,
+//		rating (string, optional): The age-appropriateness rating for the series.,
 //		modified (Date, optional): The date the resource was most recently modified.,
-//		thumbnail (Image, optional): The representative image for this story.,
-//		comics (ComicList, optional): A resource list containing comics in which this story takes place.,
-//		series (SeriesList, optional): A resource list containing series in which this story appears.,
-//		events (EventList, optional): A resource list of the events in which this story appears.,
-//		characters (CharacterList, optional): A resource list of characters which appear in this story.,
-//		creators (CreatorList, optional): A resource list of creators who worked on this story.,
-//		originalissue (ComicSummary, optional): A summary representation of the issue in which this story was originally published.
+//		thumbnail (Image, optional): The representative image for this series.,
+//		comics (ComicList, optional): A resource list containing comics in this series.,
+//		stories (StoryList, optional): A resource list containing stories which occur in comics in this series.,
+//		events (EventList, optional): A resource list containing events which take place in comics in this series.,
+//		characters (CharacterList, optional): A resource list containing characters which appear in comics in this series.,
+//		creators (CreatorList, optional): A resource list of creators whose work appears in comics in this series.,
+//		next (SeriesSummary, optional): A summary representation of the series which follows this series.,
+//		previous (SeriesSummary, optional): A summary representation of the series which preceded this series.
 //		}
 }

@@ -1,13 +1,13 @@
-package com.marvel.catalog.demo;
+package com.marvel.catalog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class AppInitialize {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(AppInitialize.class, args);
 	}
 
 }
