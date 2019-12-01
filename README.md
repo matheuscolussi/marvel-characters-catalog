@@ -26,7 +26,7 @@ To access it, go to [this link](http://localhost:8080/marvel-catalog-db). Userna
 
 ## Tests
 
-Tests could be done at following [link](http://localhost:8080/swagger-ui.html#/).
+Tests could be done at following [link](http://localhost:8080/swagger-ui.html#/). The characters present are ***Spider-Man (ID = 1)*** and ***Hulk (ID = 2)***.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
