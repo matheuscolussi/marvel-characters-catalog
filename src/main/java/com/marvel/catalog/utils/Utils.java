@@ -1,6 +1,6 @@
 package com.marvel.catalog.utils;
 
-import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ public class Utils {
 	public static final String ATTRIBUTION_TEXT = "Data provided by Marvel. © 2019 MARVEL";
 	public static final String ATTRIBUTION_HTML = "<a href=\\\"http://marvel.com\\\">Data provided by Marvel. © 2019 MARVEL</a>";
 
-	public static <T> GenericDataContainer<T> createGenericDataContainer(List<T> listOfObjects) {
+	public static <T> GenericDataContainer<T> createGenericDataContainer(Set<T> listOfObjects) {
 		GenericDataContainer<T> dataContainer = new GenericDataContainer<T>();
 		dataContainer.setCount(listOfObjects.size());
 		dataContainer.setLimit(LIMIT_SIZE_DEFAULT);
