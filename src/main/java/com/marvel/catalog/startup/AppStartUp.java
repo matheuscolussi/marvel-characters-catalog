@@ -47,7 +47,8 @@ public class AppStartUp implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-	initializeData();
+	initializeDataForSpiderMan();
+	initializeDataForHulk();
     }
 
     private Date createDate(int daysToAdd, int monthsToAdd, int yearsToAdd) {
@@ -57,13 +58,12 @@ public class AppStartUp implements ApplicationListener<ContextRefreshedEvent> {
 	gregorianCalendar.add(Calendar.MONTH, monthsToAdd);
 	gregorianCalendar.add(Calendar.YEAR, yearsToAdd);
 	return gregorianCalendar.getTime();
-
     }
 
-    private void initializeData() {
+    private void initializeDataForSpiderMan() {
 	Character character1 = new Character();
 	character1.setId(1);
-	character1.setName("Character 1");
+	character1.setName("Spider-Man");
 	character1.setDescription("Description of Character 1!");
 	character1.setModified(createDate(0, -10, 0));
 	character1.setResourseURI("ResourseURI of Character 1");
@@ -329,5 +329,276 @@ public class AppStartUp implements ApplicationListener<ContextRefreshedEvent> {
 	character1.setEvents(setOfEvents1);
 
 	characterRepository.save(character1);
+    }
+
+    private void initializeDataForHulk() {
+	Character character2 = new Character();
+	character2.setId(2);
+	character2.setName("Hulk");
+	character2.setDescription("Description of Character 2!");
+	character2.setModified(createDate(1, -10, 0));
+	character2.setResourseURI("ResourseURI of Character 2");
+
+	Image img14_character2 = new Image();
+	img14_character2.setId(14);
+	img14_character2.setExtension("JPEG");
+	img14_character2.setPath("/static/resources/img14_character2");
+	img14_character2.setCharacter(character2);
+	character2.setThumbnail(img14_character2);
+
+	Serie serie4 = new Serie();
+	Set<Character> setOfCharacters1 = new HashSet<Character>();
+	setOfCharacters1.add(character2);
+	serie4.setId(4);
+	serie4.setCharacters(setOfCharacters1);
+	serie4.setTitle("Title of Serie 4");
+	serie4.setDescription("Description of Serie 4");
+	serie4.setStartYear(1990);
+	serie4.setEndYear(2000);
+	serie4.setModified(createDate(1, -10, 0));
+	serie4.setRating("5 Stars");
+	serie4.setResourceURI("ResourceURI of Serie 4");
+
+	Image img15_serie4 = new Image();
+	img15_serie4.setId(15);
+	img15_serie4.setExtension("JPEG");
+	img15_serie4.setPath("/static/resources/img15_serie4");
+	img15_serie4.setSerie(serie4);
+	serie4.setThumbnail(img15_serie4);
+
+	Serie serie5 = new Serie();
+	Set<Character> setOfCharacters2 = new HashSet<Character>();
+	setOfCharacters2.add(character2);
+	serie5.setId(5);
+	serie5.setCharacters(setOfCharacters2);
+	serie5.setTitle("Title of Serie 5");
+	serie5.setDescription("Description of Serie 5");
+	serie5.setStartYear(2001);
+	serie5.setEndYear(2012);
+	serie5.setModified(createDate(2, -9, 0));
+	serie5.setRating("4 Stars");
+	serie5.setResourceURI("ResourceURI of Serie 5");
+
+	Image img16_serie5 = new Image();
+	img16_serie5.setId(16);
+	img16_serie5.setExtension("JPEG");
+	img16_serie5.setPath("/static/resources/img16_serie5");
+	img16_serie5.setSerie(serie5);
+	serie5.setThumbnail(img16_serie5);
+
+	Serie serie6 = new Serie();
+	Set<Character> setOfCharacters3 = new HashSet<Character>();
+	setOfCharacters3.add(character2);
+	serie6.setId(6);
+	serie6.setCharacters(setOfCharacters3);
+	serie6.setTitle("Title of Serie 6");
+	serie6.setDescription("Description of Serie 6");
+	serie6.setStartYear(1995);
+	serie6.setEndYear(2000);
+	serie6.setModified(createDate(2, -8, 0));
+	serie6.setRating("3 Stars");
+	serie6.setResourceURI("ResourceURI of Serie 6");
+
+	Image img17_serie6 = new Image();
+	img17_serie6.setId(17);
+	img17_serie6.setExtension("JPEG");
+	img17_serie6.setPath("/static/resources/img17_serie6");
+	img17_serie6.setSerie(serie6);
+	serie6.setThumbnail(img17_serie6);
+
+	Comic comic3 = new Comic();
+	comic3.setId(3);
+	comic3.setDigitalId(20000);
+	comic3.setDescription("Description of Comic 3");
+	comic3.setDiamondCode("Diamond Code of Comic 3");
+	comic3.setEan("EAN of Comic 3");
+	comic3.setFormat("Format of Comic 3");
+	comic3.setIsbn("ISBN of Comic 3");
+	comic3.setIssn("ISSN of Comic 3");
+	comic3.setIssueNumber(111111);
+	comic3.setModified(createDate(19, -15, 0));
+	comic3.setPageCount(200);
+	comic3.setResourceURI("ResourceURI of Comic 3");
+	comic3.setTitle("Title of Comic 3");
+	comic3.setUpc("UPC of Comic 3");
+	comic3.setVariantDescription("Variant Description of Comic 3");
+
+	Image img18_comic3 = new Image();
+	img18_comic3.setId(18);
+	img18_comic3.setExtension("JPEG");
+	img18_comic3.setPath("/static/resources/img18_comic3");
+	img18_comic3.setComic(comic3);
+	comic3.setThumbnail(img18_comic3);
+
+	Comic comic4 = new Comic();
+	comic4.setId(4);
+	comic4.setDigitalId(30000);
+	comic4.setDescription("Description of Comic 4");
+	comic4.setDiamondCode("Diamond Code of Comic 4");
+	comic4.setEan("EAN of Comic 4");
+	comic4.setFormat("Format of Comic 4");
+	comic4.setIsbn("ISBN of Comic 4");
+	comic4.setIssn("ISSN of Comic 4");
+	comic4.setIssueNumber(222222);
+	comic4.setModified(createDate(10, -3, 0));
+	comic4.setPageCount(200);
+	comic4.setResourceURI("ResourceURI of Comic 4");
+	comic4.setTitle("Title of Comic 4");
+	comic4.setUpc("UPC of Comic 4");
+	comic4.setVariantDescription("Variant Description of Comic 4");
+
+	Image img19_comic4 = new Image();
+	img19_comic4.setId(19);
+	img19_comic4.setExtension("JPEG");
+	img19_comic4.setPath("/static/resources/img19_comic4");
+	img19_comic4.setComic(comic4);
+	comic4.setThumbnail(img19_comic4);
+
+	Story story5 = new Story();
+	story5.setId(5);
+	story5.setTitle("Title of Story 5");
+	story5.setDescription("Description of Story 5");
+	story5.setModified(createDate(10, -1, 0));
+	story5.setResourceURI("Resource URI of Story 5");
+	story5.setType("Type of Story 5");
+
+	Image img20_story5 = new Image();
+	img20_story5.setId(20);
+	img20_story5.setExtension("JPEG");
+	img20_story5.setPath("/static/resources/img20_story5");
+	img20_story5.setStory(story5);
+	story5.setThumbnail(img20_story5);
+
+	Story story6 = new Story();
+	story6.setId(6);
+	story6.setTitle("Title of Story 6");
+	story6.setDescription("Description of Story 6");
+	story6.setModified(createDate(8, -8, 0));
+	story6.setResourceURI("Resource URI of Story 6");
+	story6.setType("Type of Story 6");
+
+	Image img21_story6 = new Image();
+	img21_story6.setId(21);
+	img21_story6.setExtension("JPEG");
+	img21_story6.setPath("/static/resources/img21_story6");
+	img21_story6.setStory(story6);
+	story6.setThumbnail(img21_story6);
+
+	Story story7 = new Story();
+	story7.setId(7);
+	story7.setTitle("Title of Story 7");
+	story7.setDescription("Description of Story 7");
+	story7.setModified(createDate(6, -3, 0));
+	story7.setResourceURI("Resource URI of Story 7");
+	story7.setType("Type of Story 7");
+
+	Image img22_story7 = new Image();
+	img22_story7.setId(22);
+	img22_story7.setExtension("JPEG");
+	img22_story7.setPath("/static/resources/img21_story7");
+	img22_story7.setStory(story7);
+	story7.setThumbnail(img22_story7);
+
+	Story story8 = new Story();
+	story8.setId(8);
+	story8.setTitle("Title of Story 8");
+	story8.setDescription("Description of Story 8");
+	story8.setModified(createDate(29, -2, 0));
+	story8.setResourceURI("Resource URI of Story 8");
+	story8.setType("Type of Story 8");
+
+	Image img23_story8 = new Image();
+	img23_story8.setId(23);
+	img23_story8.setExtension("JPEG");
+	img23_story8.setPath("/static/resources/img22_story8");
+	img23_story8.setStory(story8);
+	story8.setThumbnail(img23_story8);
+
+	Event event4 = new Event();
+	event4.setId(4);
+	event4.setTitle("Title of Event 4");
+	event4.setDescription("Description of Title 4");
+	GregorianCalendar gregorianCalendar = new GregorianCalendar();
+	gregorianCalendar.setTime(new Date());
+	gregorianCalendar.add(Calendar.MONTH, -24);
+	event4.setStart(gregorianCalendar.getTime());
+	gregorianCalendar.setTime(new Date());
+	gregorianCalendar.add(Calendar.MONTH, 24);
+	event4.setEnd(gregorianCalendar.getTime());
+	event4.setModified(createDate(7, -13, 0));
+	event4.setResourceURI("ResourceURI of Event 4");
+
+	Image img24_event4 = new Image();
+	img24_event4.setId(24);
+	img24_event4.setExtension("JPEG");
+	img24_event4.setPath("/static/resources/img23_event4");
+	img24_event4.setEvent(event4);
+	event4.setThumbnail(img24_event4);
+
+	Event event5 = new Event();
+	event5.setId(5);
+	event5.setTitle("Title of Event 5");
+	event5.setDescription("Description of Title 5");
+	gregorianCalendar.setTime(new Date());
+	gregorianCalendar.add(Calendar.MONTH, -18);
+	event5.setStart(gregorianCalendar.getTime());
+	gregorianCalendar.setTime(new Date());
+	gregorianCalendar.add(Calendar.MONTH, 18);
+	event5.setEnd(gregorianCalendar.getTime());
+	event5.setModified(createDate(18, -7, 0));
+	event5.setResourceURI("ResourceURI of Event 5");
+
+	Image img25_event5 = new Image();
+	img25_event5.setId(25);
+	img25_event5.setExtension("JPEG");
+	img25_event5.setPath("/static/resources/img24_event5");
+	img25_event5.setEvent(event5);
+	event5.setThumbnail(img25_event5);
+
+	Event event6 = new Event();
+	event6.setId(6);
+	event6.setTitle("Title of Event 6");
+	event6.setDescription("Description of Title 6");
+	gregorianCalendar.setTime(new Date());
+	gregorianCalendar.add(Calendar.MONTH, -8);
+	event6.setStart(gregorianCalendar.getTime());
+	gregorianCalendar.setTime(new Date());
+	gregorianCalendar.add(Calendar.MONTH, 8);
+	event6.setEnd(gregorianCalendar.getTime());
+	event6.setModified(createDate(9, -1, 0));
+	event6.setResourceURI("ResourceURI of Event 6");
+
+	Image img26_event6 = new Image();
+	img26_event6.setId(26);
+	img26_event6.setExtension("JPEG");
+	img26_event6.setPath("/static/resources/img25_event6");
+	img26_event6.setEvent(event6);
+	event6.setThumbnail(img26_event6);
+
+	Set<Serie> setOfSeries1 = new HashSet<Serie>();
+	setOfSeries1.add(serie4);
+	setOfSeries1.add(serie5);
+	setOfSeries1.add(serie6);
+	character2.setSeries(setOfSeries1);
+
+	Set<Comic> setOfComics1 = new HashSet<Comic>();
+	setOfComics1.add(comic3);
+	setOfComics1.add(comic4);
+	character2.setComics(setOfComics1);
+
+	Set<Story> setOfStories1 = new HashSet<Story>();
+	setOfStories1.add(story5);
+	setOfStories1.add(story6);
+	setOfStories1.add(story7);
+	setOfStories1.add(story8);
+	character2.setStories(setOfStories1);
+
+	Set<Event> setOfEvents1 = new HashSet<Event>();
+	setOfEvents1.add(event4);
+	setOfEvents1.add(event5);
+	setOfEvents1.add(event6);
+	character2.setEvents(setOfEvents1);
+
+	characterRepository.save(character2);
     }
 }
