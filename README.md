@@ -5,7 +5,7 @@ All application objects were created based on original objects. You can check th
 
 ## Installation
 
-You can either clone this project or get the JAR file, ***appDemo-0.0.1-SNAPSHOT***, located at *target* folder.
+You can either clone this project or get the JAR file, ***appDemo-0.0.1-SNAPSHOT***, located at *executableJar* folder.
 
 ## Usage
 
